@@ -21,6 +21,9 @@ void znajdzNajdalszePary(const int odleglosci[], int n, int najdalszePary[][2], 
     for (int i = 0; i < n; i++) {
         calkowitaOdleglosc += odleglosci[i];
     }
+    
+    int maksymalnaOdleglosc = 0;
+    liczbaPar = 0;
 	
 	
 }
