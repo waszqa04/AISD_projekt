@@ -53,6 +53,19 @@ int main()
 ifstream plikWejsciowy("wejscie.txt");
 ofstream plikWyjsciowy("wyniki.txt");
 
+if (!plikWejsciowy.is_open() || !plikWyjsciowy.is_open()) {
+        cout << "Nie mozna otworzyc pliku!" << endl;
+        return 1;
+    }
+
+    int liczbaTestow;
+    plikWejsciowy >> liczbaTestow;
+
+    for (int numerTestu = 0; numerTestu < liczbaTestow; numerTestu++) {
+        int n;
+        plikWejsciowy >> n;
+    }
+
 
 
 plikWejsciowy.close();
