@@ -15,6 +15,14 @@ int obliczOdleglosc(const int odleglosci[], int n, int start, int koniec, int ca
     return min(odlegloscZgodnieZRuchem, odlegloscPrzeciwnieDoRuchu);
 }
 
+void znajdzNajdalszePary(const int odleglosci[], int n, int najdalszePary[][2], int& liczbaPar){
+	
+	
+	
+	
+}
+
+
 int main()
 {
 
