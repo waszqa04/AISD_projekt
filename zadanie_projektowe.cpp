@@ -17,7 +17,10 @@ int obliczOdleglosc(const int odleglosci[], int n, int start, int koniec, int ca
 
 void znajdzNajdalszePary(const int odleglosci[], int n, int najdalszePary[][2], int& liczbaPar){
 	
-	
+	int calkowitaOdleglosc = 0;
+    for (int i = 0; i < n; i++) {
+        calkowitaOdleglosc += odleglosci[i];
+    }
 	
 	
 }
