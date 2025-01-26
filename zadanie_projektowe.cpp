@@ -5,6 +5,7 @@ using namespace std;
 
 const int MAX_N = 100; 
 
+//Funkcja obliczaj¹ca maksymalny dystans miêdzy dwoma punktami w dwóch kierunkach 
 int obliczDystans(const int dystanse[], int n, int start, int koniec, int calkowityDystans) {
     int dystansZgodny = 0;
 
@@ -17,6 +18,7 @@ int obliczDystans(const int dystanse[], int n, int start, int koniec, int calkow
     return min(dystansZgodny, dystansPrzeciwny);
 }
 
+//Funkcja znajduj¹ca pary punktów, miêdzy którymi jest najwiêkszy dystans 
 void znajdzNajdalszePary(const int dystanse[], int n, int najdalszePary[][2], int& liczbaPar) {
     int calkowityDystans = 0;
     for (int i = 0; i < n; i++) {
@@ -46,6 +48,7 @@ void znajdzNajdalszePary(const int dystanse[], int n, int najdalszePary[][2], in
 }
 
 int main() {
+	//Otwarcie pliku tekstowego i sprawdzenie ich poprawnoœci 
     ifstream plikWejsciowy("wejscie.txt");
     ofstream plikWyjsciowy("wyniki.txt");
 
@@ -64,22 +67,24 @@ int main() {
 	//[10 20 30 40]
 	//[1 2 5 3 8 6]
 
+	//Odczytanie liczby przypadków testowych 
     int liczbaTestow;
     plikWejsciowy >> liczbaTestow;
 
     for (int numerTestu = 0; numerTestu < liczbaTestow; numerTestu++) {
         int n;
-        plikWejsciowy >> n;
+        plikWejsciowy >> n; //lioczba punktow 
 
         int dystanse[MAX_N];
         for (int i = 0; i < n; i++) {
             plikWejsciowy >> dystanse[i];
         }
 
-        int najdalszePary[100][2];
-        int liczbaPar;
+        int najdalszePary[100][2]; //tablica przechowujaca najdalsze pary 
+        int liczbaPar; //liczba takich par 
         znajdzNajdalszePary(dystanse, n, najdalszePary, liczbaPar);
 
+		//Zapisujemy wyniki do pliku wyjsciowego 
         plikWyjsciowy << "Przypadek testowy: " << numerTestu + 1 << ":\n";
         plikWyjsciowy << "Dystanse: [";
         for (int i = 0; i < n; i++) {
@@ -95,7 +100,7 @@ int main() {
         plikWyjsciowy << "]\n";
         plikWyjsciowy << "-----------------------------\n";
     }
-
+	//zamykamy pliki
     plikWejsciowy.close();
     plikWyjsciowy.close();
 
