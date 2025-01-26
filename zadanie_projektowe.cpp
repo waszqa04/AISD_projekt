@@ -57,7 +57,7 @@ int main() {
         return 1;
     }
     else{
-    	cout<<"Wyniki zosta³y zapisane do pliku!"<<endl;
+    	cout<<"Wyniki zostaly zapisane do pliku!"<<endl;
 	}
 
 	//Przypadki testowe
