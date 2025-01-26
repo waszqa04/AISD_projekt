@@ -53,6 +53,16 @@ int main() {
         cout << "Nie mozna otworzyc pliku!" << endl;
         return 1;
     }
+    else{
+    	cout<<"Wyniki zosta³y zapisane do pliku!"<<endl;
+	}
+
+	//Przypadki testowe
+	//[1 2 3 4 3]
+	//[2 3 5 7 11]
+	//[1 1 1 1 1 1]
+	//[10 20 30 40]
+	//[1 2 5 3 8 6]
 
     int liczbaTestow;
     plikWejsciowy >> liczbaTestow;
