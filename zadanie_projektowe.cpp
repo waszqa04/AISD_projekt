@@ -65,6 +65,29 @@ if (!plikWejsciowy.is_open() || !plikWyjsciowy.is_open()) {
         int n;
         plikWejsciowy >> n;
     }
+    int dystanse[MAX_N];
+        for (int i = 0; i < n; i++) {
+            plikWejsciowy >> dystanse[i];
+        }
+
+        int najdalszePary[100][2];
+        int liczbaPar;
+        znajdzNajdalszePary(dystanse, n, najdalszePary, liczbaPar);
+
+        plikWyjsciowy << "Przypadek testowy: " << numerTestu + 1 << ":\n";
+        plikWyjsciowy << "Dystanse: [";
+        for (int i = 0; i < n; i++) {
+            plikWyjsciowy << dystanse[i] << (i < n - 1 ? ", " : "");
+        }
+        plikWyjsciowy << "]\n";
+
+        plikWyjsciowy << "Najdalsze pary: [";
+        for (int i = 0; i < liczbaPar; i++) {
+            plikWyjsciowy << "[" << najdalszePary[i][0] << ", " << najdalszePary[i][1] << "]";
+            if (i < liczbaPar - 1) plikWyjsciowy << ", ";
+        }
+        plikWyjsciowy << "]\n";
+        plikWyjsciowy << "-----------------------------\n";
 
 
 
