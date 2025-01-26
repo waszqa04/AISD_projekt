@@ -1,0 +1,20 @@
+Przypadek testowy: 1:
+Dystanse: [1, 2, 3, 4, 3]
+Najdalsze pary: [[1, 4], [3, 5]]
+-----------------------------
+Przypadek testowy: 2:
+Dystanse: [2, 3, 5, 7, 11]
+Najdalsze pary: [[2, 5]]
+-----------------------------
+Przypadek testowy: 3:
+Dystanse: [1, 1, 1, 1, 1, 1]
+Najdalsze pary: [[1, 4], [2, 5], [3, 6]]
+-----------------------------
+Przypadek testowy: 4:
+Dystanse: [10, 20, 30, 40]
+Najdalsze pary: [[2, 4]]
+-----------------------------
+Przypadek testowy: 5:
+Dystanse: [1, 5, 2, 3, 8, 6]
+Najdalsze pary: [[3, 6]]
+-----------------------------

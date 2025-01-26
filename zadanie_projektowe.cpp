@@ -1,33 +1,31 @@
 #include <iostream>
-#include <algorithm>
 #include <fstream>
-
+#include <algorithm>
 using namespace std;
 
-const int MAX_N = 100;
+const int MAX_N = 100; 
 
-int obliczOdleglosc(const int odleglosci[], int n, int start, int koniec, int calkowitaOdleglosc) {
-    int odlegloscZgodnieZRuchem = 0;
+int obliczDystans(const int dystanse[], int n, int start, int koniec, int calkowityDystans) {
+    int dystansZgodny = 0;
 
     for (int i = start; i != koniec; i = (i + 1) % n) {
-        odlegloscZgodnieZRuchem += odleglosci[i];
+        dystansZgodny += dystanse[i];
     }
 
-    int odlegloscPrzeciwnieDoRuchu = calkowitaOdleglosc - odlegloscZgodnieZRuchem;
+    int dystansPrzeciwny = calkowityDystans - dystansZgodny;
 
-    return min(odlegloscZgodnieZRuchem, odlegloscPrzeciwnieDoRuchu);
+    return min(dystansZgodny, dystansPrzeciwny);
 }
 
-void znajdzNajdalszePary(const int odleglosci[], int n, int najdalszePary[][2], int& liczbaPar){
-	
-	int calkowitaOdleglosc = 0;
+void znajdzNajdalszePary(const int dystanse[], int n, int najdalszePary[][2], int& liczbaPar) {
+    int calkowityDystans = 0;
     for (int i = 0; i < n; i++) {
-        calkowitaOdleglosc += odleglosci[i];
+        calkowityDystans += dystanse[i];
     }
-    
-    int maksymalnaOdleglosc = 0;
+
+    int maksymalnyDystans = 0;
     liczbaPar = 0;
-    
+
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             int dystans = obliczDystans(dystanse, n, i, j, calkowityDystans);
@@ -47,13 +45,11 @@ void znajdzNajdalszePary(const int odleglosci[], int n, int najdalszePary[][2], 
     }
 }
 
+int main() {
+    ifstream plikWejsciowy("wejscie.txt");
+    ofstream plikWyjsciowy("wyniki.txt");
 
-int main()
-{
-ifstream plikWejsciowy("wejscie.txt");
-ofstream plikWyjsciowy("wyniki.txt");
-
-if (!plikWejsciowy.is_open() || !plikWyjsciowy.is_open()) {
+    if (!plikWejsciowy.is_open() || !plikWyjsciowy.is_open()) {
         cout << "Nie mozna otworzyc pliku!" << endl;
         return 1;
     }
@@ -64,8 +60,8 @@ if (!plikWejsciowy.is_open() || !plikWyjsciowy.is_open()) {
     for (int numerTestu = 0; numerTestu < liczbaTestow; numerTestu++) {
         int n;
         plikWejsciowy >> n;
-    }
-    int dystanse[MAX_N];
+
+        int dystanse[MAX_N];
         for (int i = 0; i < n; i++) {
             plikWejsciowy >> dystanse[i];
         }
@@ -88,12 +84,11 @@ if (!plikWejsciowy.is_open() || !plikWyjsciowy.is_open()) {
         }
         plikWyjsciowy << "]\n";
         plikWyjsciowy << "-----------------------------\n";
+    }
 
+    plikWejsciowy.close();
+    plikWyjsciowy.close();
 
-
-plikWejsciowy.close();
-plikWyjsciowy.close();
-
-return 0;
+    return 0;
 }
 
